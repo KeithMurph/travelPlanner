@@ -12,24 +12,24 @@ Trip.init(
             autoIncrement: true,
           },
           trip_budget: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false,
           },
           traveller_amount: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false,
           },
           traveller_id: {
             type: DataTypes.INTEGER,
             references: {
-              model: 'traveller',
+              model: 'Travellers',
               key: 'id',
             },
           },
           location_id: {
             type: DataTypes.INTEGER,
             references: {
-              model: 'location',
+              model: 'Locations',
               key: 'id',
             },
           },

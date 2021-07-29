@@ -8,12 +8,10 @@ const { Trip, Location, Traveller } = require('../../models');
 // creates trip data with accociated travellers and locations
 router.post('./', async (req, res) => {
     try {
-        const TripData = await Trip.create({
-            include :[{ model: Traveller }, { model: Location}],
-
-        });
+        const TripData = await Trip.create(req.body);
         res.status(200).json(TripData);
       } catch (err) {
+        console.log(err)
         res.status(400).json(err);
       }
 
@@ -36,6 +34,7 @@ router.delete('/:id', async (req, res) => {
   
       res.status(200).json(TripData);
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   });

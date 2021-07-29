@@ -1,17 +1,16 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Location, Traveller } = require('../../models');
+const { Location, Trip } = require('../../models');
 // const { Location } = require('../../models/location');
 // const { Traveller } = require('../../models/traveller');
 
 // returns all location data
 router.get('/', async (req, res) => {
     try {
-        const LocationData = await Location.findAll({
-            include : [{ model : Traveller }],
-        });
+        const LocationData = await Location.findAll();
         res.status(200).json(LocationData);
        } catch (err) {
+        console.log(err)
            res.status(500).json(err);
        }
 });
@@ -19,11 +18,10 @@ router.get('/', async (req, res) => {
 // creates location data with its associated trips
 router.post('/', async (req, res) => {
     try {
-      const locationData = await Location.create({
-        traveller_id: req.body.traveller_id,
-      });
+      const locationData = await Location.create(req.body);
       res.status(200).json(locationData);
     } catch (err) {
+      console.log(err)
       res.status(400).json(err);
     }
   });
@@ -32,7 +30,7 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
       const LocationData = await Location.findByPk(req.params.id, {
-        include: [{ model: Traveller }],
+        include: [{ model: Trip }],
       });
   
       if (!LocationData) {
@@ -42,6 +40,7 @@ router.get('/:id', async (req, res) => {
   
       res.status(200).json(LocationData);
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   });
@@ -62,6 +61,7 @@ router.delete('/:id', async (req, res) => {
   
       res.status(200).json(LocationData);
     } catch (err) {
+      console.log(err)
       res.status(500).json(err);
     }
   });
