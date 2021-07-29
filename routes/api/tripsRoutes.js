@@ -6,9 +6,12 @@ const { Trip, Location, Traveller } = require('../../models');
 // const { Traveller } = require('../../models/traveller');
 
 // creates trip data with accociated travellers and locations
-router.post('./', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const TripData = await Trip.create(req.body);
+        // include: [{ model: Location }, { model: Traveller }],
+
+
         res.status(200).json(TripData);
       } catch (err) {
         console.log(err)
