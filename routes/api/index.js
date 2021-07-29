@@ -3,7 +3,7 @@ const locationRoutes = require('./locationRoutes');
 const travellerRoutes = require('./travellerRoutes');
 const tripsRoutes = require('./tripsRoutes');
 
-router.use('/travellers', locationRoutes );
+router.use('/travellers', locationRoutes);
 router.use('/locations', travellerRoutes);
 router.use('/trips', tripsRoutes);
 
