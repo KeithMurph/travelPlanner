@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Trip, Location, Traveller } = require('../../models');
-
+// const { Trip } = require('../../models/trips');
+// const { Location } = require('../../models/location');
+// const { Traveller } = require('../../models/traveller');
 
 // creates trip data with accociated travellers and locations
 router.post('./', async (req, res) => {

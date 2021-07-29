@@ -1,7 +1,9 @@
 const router = require('express').Router();
-const sequelize = require('../../config/connection');
-const { Traveller, Location,  Trips } = require('../../model');
-
+ const sequelize = require('../../config/connection');
+const { Traveller, Location,  Trips } = require('../../models');
+// const { Traveller } = require('../../models/traveller');
+// const { Location } = require('../../models/location');
+// const { Trips } = require('../../models/trips');
 
 
 //returns all traveller data without associated trips

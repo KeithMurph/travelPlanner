@@ -39,7 +39,7 @@ Trip.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'trips'
+        modelName: 'Trip'
       }
 )
 

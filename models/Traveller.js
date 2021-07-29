@@ -25,7 +25,7 @@ Traveller.init(
         timestamps: false,
         freezeTableName: true,
         underscored: true,
-        modelName: 'traveller'
+        modelName: 'Traveller'
       }
 )
 

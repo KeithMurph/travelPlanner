@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Location, Traveller } = require('../../models');
-
+// const { Location } = require('../../models/location');
+// const { Traveller } = require('../../models/traveller');
 
 // returns all location data
 router.get('/', async (req, res) => {
